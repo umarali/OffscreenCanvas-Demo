@@ -28,3 +28,9 @@ Then, open `localhost:8080` in your browser to see the demo.
 This demo uses `OffscreenCanvas` to render a simple animation. The animation continues to run even when the browser tab is inactive. This is achieved by running the animation in a Web Worker, which allows it to continue running independently of the main browser thread.
 
 If the browser does not support `OffscreenCanvas`, a fallback is used. In this case, the animation runs on the main thread and `worker-fallback.js` file is used to handle this case. This ensures that the animation can run in all browsers.
+
+## Demo
+
+![Demo Animation](https://ibb.co/F0bBDtZ)
+
+The above animation demonstrates how the project works. The animated box continues to move even when the browser tab is not active, thanks to `OffscreenCanvas`. If `OffscreenCanvas` is not supported by the browser, the fallback ensures the animation still runs.
