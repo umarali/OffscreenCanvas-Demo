@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
 <body>
   <canvas id="canvas" width="500" height="500"></canvas>
 
   <script>
     const canvas = document.getElementById('canvas');
-    const offscreen = canvas.transferControlToOffscreen();
-    const worker = new Worker('worker.js');
-    worker.postMessage({ canvas: offscreen }, [offscreen]);
+    let worker;
+
+    if (!('OffscreenCanvas' in window && 'transferControlToOffscreen' in canvas)) {
+      const offscreen = canvas.transferControlToOffscreen();
+      worker = new Worker('worker.js');
+      worker.postMessage({ canvas: offscreen }, [offscreen]);
+    } else {
+      // Fallback for browsers that don't support OffscreenCanvas
+      worker = new Worker('worker-fallback.js');
+      worker.postMessage({});
+      
+      worker.onmessage = function(e) {
+        const { x, y } = e.data;
+        const ctx = canvas.getContext('2d');  // Get context only in the fallback case
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(x, y, 50, 50);
+      };
+    }
   </script>
 </body>
 </html>
