@@ -6,7 +6,7 @@ This project demonstrates the use of `OffscreenCanvas` to maintain animation whe
 
 1. Clone the repository:
     ```
-    git clone https://github.com/yourusername/OffscreenCanvas-Demo.git
+    git clone https://github.com/umarali/OffscreenCanvas-Demo.git
     ```
 2. Navigate into the repository:
     ```
