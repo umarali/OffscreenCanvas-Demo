@@ -10,7 +10,7 @@
     const canvas = document.getElementById('canvas');
     let worker;
 
-    if (!('OffscreenCanvas' in window && 'transferControlToOffscreen' in canvas)) {
+    if ('OffscreenCanvas' in window && 'transferControlToOffscreen' in canvas) {
       const offscreen = canvas.transferControlToOffscreen();
       worker = new Worker('worker.js');
       worker.postMessage({ canvas: offscreen }, [offscreen]);
