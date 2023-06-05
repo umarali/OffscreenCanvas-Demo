@@ -31,6 +31,6 @@ If the browser does not support `OffscreenCanvas`, a fallback is used. In this c
 
 ## Demo
 
-![Demo Animation](https://ibb.co/F0bBDtZ)
+![Demo Animation](https://i.ibb.co/nnsDLSd/demo.gif)
 
 The above animation demonstrates how the project works. The animated box continues to move even when the browser tab is not active, thanks to `OffscreenCanvas`. If `OffscreenCanvas` is not supported by the browser, the fallback ensures the animation still runs.
